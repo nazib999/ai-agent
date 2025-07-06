@@ -13,7 +13,7 @@ export interface SearchBarRef {
     resetSearch: () => void;
 }
 
-const SearchBar = forwardRef<SearchBarRef, SearchBarProps>(({ agents }, ref) => {
+const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((_, ref) => {
     const dispatch = useAppDispatch();
     const [localSearchQuery, setLocalSearchQuery] = useState('');
 
