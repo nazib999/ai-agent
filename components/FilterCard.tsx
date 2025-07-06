@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useState} from 'react';
-import { Agent } from '@/types';
+
 import {
     Select,
     SelectContent,

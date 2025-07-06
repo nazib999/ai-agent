@@ -1,4 +1,4 @@
-// types/agent.ts
+
 export type Agent = {
     id: string;
     name: string;
@@ -14,6 +14,6 @@ export type Agent = {
         | 'Finance'
         | 'Legal';
     pricingModel: 'Free Tier' | 'Subscription' | 'Per-Use';
-    // Optional animation key for Framer Motion animations
+
     animationKey?: string;
 };

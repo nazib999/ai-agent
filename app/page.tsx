@@ -3,10 +3,11 @@ import AgentList from "@/components/AgentList";
 import { getAllAgents } from "@/lib/actions/Agent.action";
 import { Agent } from "@/types";
 import AuthButton from "@/components/AuthButton";
+import Link from "next/link";
 
 
 async function Page() {
-    // Fetch data on the server
+
     const agents: Agent[] = await getAllAgents();
 
     return (
@@ -14,10 +15,10 @@ async function Page() {
             <header className={'bg-blue-400'}>
                 <div className={'container'}>
                     <div className={'py-5 px-3 flex justify-between items-center '}>
-                        <a href="/">
+                        <Link href="/">
 
                             <h1 className={'text-2xl text-white uppercase'}>Ai Agent</h1>
-                        </a>
+                        </Link>
                         <AuthButton/>
                     </div>
                 </div>
@@ -25,7 +26,7 @@ async function Page() {
 
             <div className={'container'}>
                 <h2 className={'font-bold text-center my-5 text-3xl'}>Explore Ai Agent</h2>
-                {/* Pass the server-fetched agents to the client component for filtering */}
+
                 <AgentList initialAgents={agents} />
             </div>
         </main>

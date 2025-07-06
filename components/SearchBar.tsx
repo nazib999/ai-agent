@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { Agent } from '@/types';
-import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
+import { useAppDispatch } from '@/lib/redux/hooks';
 import { setSearchQuery, applyFilters } from '@/lib/redux/slices/agentSlice';
 
 interface SearchBarProps {
@@ -27,7 +27,7 @@ const SearchBar = forwardRef<SearchBarRef, SearchBarProps>(({ agents }, ref) => 
     }));
 
     useEffect(() => {
-        // Update Redux state when local search query changes
+
         dispatch(setSearchQuery(localSearchQuery));
         dispatch(applyFilters());
     }, [localSearchQuery, dispatch]);

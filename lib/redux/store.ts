@@ -7,9 +7,9 @@ export const store = configureStore({
   },
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-// Export hooks for use in components
+
 export * from './hooks';

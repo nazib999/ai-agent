@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef } from 'react';
+import {  useEffect, useRef } from 'react';
 import { Agent } from '@/types';
 import AgentCard from './AgentCard';
 import SearchBar, { SearchBarRef } from './SearchBar';
@@ -10,7 +10,7 @@ import {
     setAllAgents, 
 
 } from '@/lib/redux/slices/agentSlice';
-import {motion} from "framer-motion";
+
 
 
 const AgentList = ({ initialAgents }: {initialAgents:Agent[]}) => {
@@ -46,7 +46,7 @@ const AgentList = ({ initialAgents }: {initialAgents:Agent[]}) => {
                 </div>
             ) : (
                 <div   className="grid grid-cols-1 gap-6 lg:grid-cols-3 md:grid-cols-2">
-                    {filteredAgents.map((agent, index) => (
+                    {filteredAgents.map((agent) => (
                         <AgentCard 
                             key={agent.id} 
                             agent={agent} 
