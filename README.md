@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 Features
 
-## Getting Started
+Server-side rendering (SSR) of AI agent list from mock-agents.json
 
-First, run the development server:
+Client-side search and filtering by:
 
-```bash
+Clear all filters/reset functionality
+
+Fully responsive UI using Shadcn UI
+
+Smooth card animation with Framer Motion
+
+SEO-ready with dynamic <title> and <meta> tags
+
+Optional: Google OAuth 2.0 Sign-in with NextAuth.js
+
+🧑‍💻 Local Setup
+
+1. Clone the Repository
+
+git clone https://github.com/nazib999/ai-agent
+
+2. Install Dependencies
+
+npm install
+
+3. Add Environment Variables
+
+Create a .env.local file at the root:
+
+# Required for NextAuth
+NEXTAUTH_SECRET=your_random_secret
+NEXTAUTH_URL=http://localhost:3000
+
+# Optional: For Google OAuth
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+
+4. Run the Development Server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🧠 Key Design Decisions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Used React Server Components (App Router) for initial SSR data loading.
 
-## Learn More
+Stored mock-agents.json in public/data/ and fetched it directly in server components for SSR.
 
-To learn more about Next.js, take a look at the following resources:
+Implemented Redux to manage global search and filter state cleanly.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Used forwardRef + useImperativeHandle to allow parent to control reset logic in <SearchBar />.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Used Framer Motion for subtle hover and load animations on cards.
 
-## Deploy on Vercel
+🔐 Google OAuth 2.0 (Optional Challenge)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I implemented Google OAuth using NextAuth.js:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Used the next-auth library with the App Router setup (/api/auth/[...nextauth]/route.ts)
+
+Set up mock Google credentials from Google Cloud Console
+
+Authenticated users can see their name and profile image in the header
+
+SessionProvider wraps the app to allow useSession globally
+
+Challenges Faced:
+
+Required proper .env setup and redirect URI matching
+
+Ensuring the <SessionProvider> was wrapped correctly in layout.tsx
+
+
+
+📆 Tech Stack
+
+Next.js 14 (App Router)
+
+TypeScript
+
+Redux Toolkit
+
+Shadcn UI (Radix + Tailwind)
+
+Framer Motion
+
+NextAuth.js
+
+
+
+This project is for ArkLab's Frontend Developer Internship Take-Home Challenge. All code is written me for evaluation purposes
